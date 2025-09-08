@@ -1,0 +1,24 @@
+class Solution {
+    public List<Integer> rightSideView(TreeNode root) {
+       List<Integer> ll=new ArrayList<>();
+       RightView(root,1,ll);
+       return ll;
+
+    }
+    int maxd=0;
+    public void RightView(TreeNode root,int cl,List<Integer> ll)
+    {
+        if(root==null)
+        {
+            return ;
+        }
+        if(maxd<cl)
+        {
+            ll.add(root.val);
+            maxd=cl;
+        }
+        RightView(root.right,cl+1,ll);
+        RightView(root.left,cl+1,ll);
+
+    }
+}
