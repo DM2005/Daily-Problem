@@ -1,0 +1,15 @@
+class Solution {
+    private int maxdia=0;
+    public int diameterOfBinaryTree(TreeNode root) {
+        depth(root);
+        return maxdia;
+    }
+    public  int depth(TreeNode root)
+    {
+        if(root ==null)return 0;
+        int l=depth(root.left);
+        int r=depth(root.right);
+        maxdia=Math.max(maxdia,l+r);
+        return Math.max(l,r)+1;
+    }
+}
