@@ -1,0 +1,18 @@
+class Solution{
+ public int compress(char[]c){
+  int n=c.length;
+  int i=0,j=0;
+  while(i<n){
+   int k=i;
+   while(k<n&&c[k]==c[i])k++;
+   int cnt=k-i;
+   c[j++]=c[i];
+   if(cnt>1){
+    String s=String.valueOf(cnt);
+    for(int t=0;t<s.length();t++)c[j++]=s.charAt(t);
+   }
+   i=k;
+  }
+  return j;
+ }
+}
